@@ -51,9 +51,9 @@ app.post('/api/shorturl', async function (req, res) {
   res.send({ original_url, short_url });
 });
 
-app.get('/api/shorturl/:id', async function (req, res) {
-  const { id } = req.params;
-  const result = await axios.get(`${API_DATA_URL}/urldata/${id}`);
+app.get('/api/shorturl/:short_url', async function (req, res) {
+  const { short_url } = req.params;
+  const result = await axios.get(`${API_DATA_URL}/urldata/${short_url}`);
 
   res.redirect(result.data.original_url);
 });
